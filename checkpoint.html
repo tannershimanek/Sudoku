@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Project Checkpoint</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Project Checkpoint<span class="small-and-muted"> - Tanner Shimanek</span></h1>
+    <p>I would say that I am about 60% done with my game logic. Aside from some clean up and code refactoring, I need to implement the logic for detecting a correctly finished puzzle. I need to detect each input and verify that it is correct, then trigger an event that displays the players time and a congratulations message.</p>
+
+    <p>I also need to write the logic for generating a new puzzle seed. Right now I generate a puzzle seed off of a pre-written puzzle I found online. Then I randomly generate where the hidden pieces will be located. I want to randomly generate my own puzzle without using a pre-written puzzle. I have ran into some issues with this, but I am mostly done with the algorithm.</p>
+
+    <h3 class="success">Implemented</h3>
+    <ul>
+      <li><span class="font-large">Difficulty Selection</span>: Player selects a difficulty, then the information is fed to the table to decide the amount of missing peices.</li>
+      <li><span class="font-large">Timer</span>: Live stopwatch and animation to time the player on how long it takes to complete the table.</li>
+      <li><span class="font-large">Build HTML Table</span>: Dynamically generate a 9x9 HTML table.</li>
+    </ul>
+
+    <h3 class="warning">In Progress</h3>
+    <ul>
+      <li><span class="font-large">Seed HTML Table</span>: I have the logic complete to determine blank cells and I am updating the DOM with the correct elements. I just need to complete the random seed logic.</li>
+      <li><span class="font-large">Generate Random Seed</span>: I am currently hard coding the table, but I want to make this dynamic. I have most of the code done, I just need to refactor and add it to my main project.</li>
+    </ul>
+    <h3 class="danger">Not Yet Implemented</h3>
+    <ul>
+      <li><span class="font-large">Validate Player Inputs</span>: Validate if a player has inputted a number, and if the row/column has been complete.</li>
+      <li><span class="font-large">Validate Completed Puzzle</span>: Write the logic to check if the player has solved the puzzle.</li>
+      <li><span class="font-large">Game Over Animation</span>: Write animate that display the players completed time, with a congratulations message and reset the puzzle table.</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sudoku Project Design</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<h1>Preliminary Software Design <span class="small-and-muted"> - Tanner Shimanek</span></h1>
+<p>This is my preliminary software design for my sudoku game.</p>
+<p>Below is an example of my updated game state.</p>
+<pre>let gameState = {
+    'DIFFICULTIES' : { 'easy': 19, 'medium': 28, 'hard': 37 },
+    'difficulty': 0,
+    'gameOver' : true,
+    'solution' : [],
+    'grid': [],
+}</pre>
+
+<h3>Model</h3>
+
+<p><span class="font-large">DIFFICULTIES:</span></p>
+<p>DIFFICULTIES is a constant and an object that contains the key value pairs. The key is the difficulty level and the value is  the number of blank spaces on the board (the more blank spaces the harder the game). Currently,'easy' should be19 blank spaces, while 'medium' should be 28 blank space, and 'hard' should have 37. These values should not be changed in any situation.</p>
+
+<p>Example: <pre>     'DIFFICULTIES': { 'easy': 27, 'medium': 28, 'hard': 37 }</pre></p>
+
+<p><span class="font-large">Difficulty:</span></p>
+<p>Difficulty is an integer value that specifies the number of blank spaces on the board and the current difficulty the player is playing on. The default value is zero, and will change once the player selects their difficulty or when the game ends.</p>
+
+<p>Example: <pre>     'difficulty': 0</pre></p>
+
+<p><span class="font-large">GameOver:</span></p>
+<p>GameOver is a boolean value that tracks if the game is in progress or not. The value of gameOver will be true if no game is in progress, while the value will be false if a game is in progress. GameOver allows us to display different buttons depending on the state of the game. The value should only be updated when the new game or start game button is clicked, or when the player completes the puzzle.</p>
+
+<p>Example: <pre>     'gameOver': true</pre></p>
+
+<p><span class="font-large">Solution:</span></p>
+<p>Solution is a grid, or an array of arrays that show the solution to the puzzle. Solution's default value is an empty array and is updated after the randomly generated table is created. Solution should only be changed when a new game has started or a game has been reset. This will later be used to check if values are correct or not, and to tell when a player has solved the puzzle.</p>
+
+<p>Example: <pre>     'solution': [[5,3,4,6,7,8,9,1,2],
+                  [6,7,2,1,9,5,3,4,8],
+                  [1,9,8,3,4,2,5,6,7],
+                  [8,5,9,7,6,1,4,2,3],
+                  [4,2,6,8,5,3,7,9,1],
+                  [7,1,3,9,2,4,8,5,6],
+                  [9,6,1,5,3,7,2,8,4],
+                  [2,8,7,4,1,9,6,3,5],
+                  [3,4,5,2,8,6,1,7,9]]</pre></p>
+
+<p><span class="font-large">Grid:</span></p>
+<p>Grid is the main puzzle board that the player will be looking at. Grid follows most of the same ideas as solution with one small difference. Grid will have 0's placed around the board that will later be swapped out with inputs by the controller. Grid should only be changed when a new game has started or a game has been reset</p>
+
+<p>Example: <pre>     'grid': [[0,0,6,2,0,4,0,1,9],
+              [0,0,0,7,5,0,6,0,0],
+              [0,4,9,0,0,0,3,0,5],
+              [0,0,0,0,0,2,0,0,7],
+              [9,7,0,5,0,6,0,8,2],
+              [4,0,0,8,0,0,0,0,0],
+              [5,0,3,0,0,0,4,7,0],
+              [0,0,7,0,1,5,0,0,0],
+              [1,6,0,7,0,2,9,0,0]]</pre></p>
+
+
+<p><span class="font-large">Functions and Methods:</span></p>
+<p><span class="font-large">setPuzzleData()</span> = seeds the grid and solution with a base puzzle data.</p>
+<p><span class="font-large">generateSeed()</span> = takes the base puzzle data and mutates it. It mutates the data by randomly generating the number of 90 degree turns the base table will turn. This allows one base table to have 4 different variations without the player noticing.</p>
+<p><span class="font-large">setBlankCells()</span> = create random coordinates on the grid and swaps the value to zero. This will later allow the zeros to be swapped out for inputs.</p>
+<p><span class="font-large">setGameOver()</span> = accepts a boolean value and updates the gameOver variable.</p>
+<p><span class="font-large">getGameOver()</span> = returns the value of gameOver.</p>
+<p><span class="font-large">setDifficulty()</span> = accepts a string value of either 'easy', 'medium', or 'hard' and uses that value to retrieve the number of blank spaces from the DIFFICULTIES object.</p>
+<p><span class="font-large">getDifficulty()</span> = returns the current difficulty setting.</p>
+<p><span class="font-large">getDifficulties()</span> =  returns the difficulties array.</p>
+<p><span class="font-large">setSolution()</span> = accepts an array of arrays for the solution to the puzzle.</p>
+<p><span class="font-large">getSolution()</span> = returns the solution array of arrays to the puzzle.</p>
+<p><span class="font-large">setGrid()</span> = Accepts the array of arrays for the grid after it has been mutated.</p>
+<p><span class="font-large">getGrid()</span> = Returns the main game array of arrays.</p>
+
+</body>
+</html>

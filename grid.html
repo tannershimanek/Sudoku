@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sudoku Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="center">
+        <h1>Game Grid</h1>
+        <p>Sample game state (json) and game grid (html table).</p>
+    </div>
+
+
+<div id="animate" class="card">
+    <h1>Sudoku</h1>
+    <p>Welcome <span id="user" class="text-info"></span>,
+        <br>
+        You logged in at <span id="timeStamp" class="text-info"></span>
+    </p>
+    <button id="logout">Clear Local Storage</button>
+    <h3>Game Grid</h3>
+
+    <p>Choose Difficulty <select>
+        <option value="0">Select</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+    </select></p>
+    
+    <p>Time: <time id="stopwatch">00:00:00</time></p>
+
+    <button id="start_game">Start Game</button>
+    
+    
+    <!-- <div id="stopwatch"></div> -->
+
+    
+
+     <!-- delete later, keep for reference -->
+    <!-- <table>
+        <tbody>
+            <tr>
+                <td id="c00"><input class="valid" maxlength="1" value="7"></td>
+                <td id="c10"><input maxlength="1"></td>
+                <td class="border-right" id="c20">6</td>
+                <td id="c30"><input maxlength="1"></td>
+                <td id="c40"><input maxlength="1"></td>
+                <td class="border-right" id="c50"><input maxlength="1"></td>
+                <td id="c60"><input maxlength="1"></td>
+                <td id="c70">4</td>
+                <td id="c80">9</td>
+            </tr>
+            <tr>
+                <td id="c01">2</td>
+                <td id="c11"><input maxlength="1"></td>
+                <td class="border-right" id="c21">4</td>
+                <td id="c31">7</td>
+                <td id="c41">5</td>
+                <td class="border-right" id="c51"><input maxlength="1"></td>
+                <td id="c61"><input maxlength="1"></td>
+                <td id="c71"><input maxlength="1"></td>
+                <td id="c81"><input maxlength="1"></td>
+            </tr>
+            <tr>
+                <td class="border-bottom" id="c02"><input maxlength="1"></td>
+                <td class="border-bottom" id="c12">1</td>
+                <td class="border-right border-bottom" id="c22">9</td>
+                <td class="border-bottom" id="c32">6</td>
+                <td class="border-bottom" id="c42"><input class="invalid" maxlength="1"value="3"></td>
+                <td class="border-right border-bottom" id="c52"><input maxlength="1"></td>
+                <td class="border-bottom attention" id="c62">3</td>
+                <td class="border-bottom" id="c72"><input maxlength="1"></td>
+                <td class="border-bottom" id="c82">5</td>
+            </tr>
+            <tr>
+                <td id="c03"><input maxlength="1"></td>
+                <td id="c13"><input maxlength="1"></td>
+                <td class="border-right" id="c23"><input maxlength="1"></td>
+                <td id="c33">9</td>
+                <td id="c43">7</td>
+                <td class="border-right" id="c53"><input maxlength="1"></td>
+                <td id="c63">4</td>
+                <td id="c73"><input maxlength="1"></td>
+                <td id="c83"><input maxlength="1"></td>
+            </tr>
+            <tr>
+                <td id="c04"><input maxlength="1"></td>
+                <td id="c14"><input maxlength="1"></td>
+                <td class="border-right" id="c24">2</td>
+                <td id="c34">5</td>
+                <td id="c44"><input maxlength="1"></td>
+                <td class="border-right" id="c54">6</td>
+                <td id="c64">8</td>
+                <td id="c74"><input maxlength="1"></td>
+                <td id="c84"><input maxlength="1"></td>
+            </tr>
+            <tr>
+                <td class="border-bottom" id="c05"><input maxlength="1"></td>
+                <td class="border-bottom" id="c15"><input maxlength="1"></td>
+                <td class="border-right border-bottom" id="c25">7</td>
+                <td class="border-bottom" id="c35"><input maxlength="1"></td>
+                <td class="border-bottom" id="c45">8</td>
+                <td class="border-right border-bottom" id="c55">2</td>
+                <td class="border-bottom" id="c65"><input maxlength="1"></td>
+                <td class="border-bottom" id="c75"><input maxlength="1"></td>
+                <td class="border-bottom" id="c85"><input maxlength="1"></td>
+            </tr>
+            <tr>
+                <td id="c06">5</td>
+                <td id="c16"><input maxlength="1"></td>
+                <td class="border-right" id="c26">3</td>
+                <td id="c36"><input maxlength="1"></td>
+                <td id="c46"><input maxlength="1"></td>
+                <td class="border-right" id="c56">7</td>
+                <td id="c66">1</td>
+                <td id="c76">6</td>
+                <td id="c86"><input maxlength="1"></td>
+            </tr>
+            <tr>
+                <td id="c07"><input maxlength="1"></td>
+                <td id="c17"><input maxlength="1"></td>
+                <td class="border-right" id="c27"><input maxlength="1"></td>
+                <td id="c37"><input maxlength="1"></td>
+                <td id="c47">1</td>
+                <td class="border-right" id="c57">5</td>
+                <td id="c67">7</td>
+                <td id="c77"><input maxlength="1"></td>
+                <td id="c87">2</td>
+            </tr>
+            <tr>
+                <td id="c08">4</td>
+                <td id="c18">7</td>
+                <td class="border-right" id="c28"><input maxlength="1"></td>
+                <td id="c38"><input maxlength="1"></td>
+                <td id="c48"><input maxlength="1"></td>
+                <td class="border-right" id="c58"><input maxlength="1"></td>
+                <td id="c68">9</td>
+                <td id="c78"><input maxlength="1"></td>
+                <td id="c88"><input maxlength="1"></td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <!-- Delete later, kept for submission 2 -->
+    <p class="text-danger"><a href="checkpoint.html" target="_blank" rel="noopener noreferrer">Click here for Project Checkpoint...</a></p>
+
+    <div id="game_grid">
+        
+    </div>
+        
+    <div>
+        <button id="new_game">New Game</button>
+    </div>
+    
+    <h2>Cell Data</h2>
+    <!-- <h2>Sample Game State</h2> -->
+    <!-- 
+        regions: each list is a different region starting from top left to bottom right.
+                1. NO repeated numbers in any sublist/region.
+                2. Check each column and each row for repeats.
+        difficulty: 
+                1. [easy, medium, hard] -- set to true for selected difficulty.
+                2. When new difficulty is selected generate new table. 
+        gameOver: 
+                1. if each column, row, and region have no repeats, set gameOver to True, else False.
+                2. When gameOver = false, change start_game button to new_game button.
+        other:
+            1. click on a given number and emphasize all of the same numbers on the board.
+    -->
+    <!-- <pre id="state">gameState: {
+        "regions": [[0,0,6,2,0,4,0,1,9],
+                    [0,0,0,7,5,0,6,0,0],
+                    [0,4,9,0,0,0,3,0,5],
+                    [0,0,0,0,0,2,0,0,7],
+                    [9,7,0,5,0,6,0,8,2],
+                    [4,0,0,8,0,0,0,0,0],
+                    [5,0,3,0,0,0,4,7,0],
+                    [0,0,7,0,1,5,0,0,0],
+                    [1,6,0,7,0,2,9,0,0]],
+        "difficulty": [true, false, false],
+        "gameOver": false
+    }</pre> -->
+
+    <div id="cell_data" class='text-info'>
+        <p>Row: <span id='row-coordinate'></span></p>
+        <p>Column: <span id='col-coordinate'></span></p>
+        <p>Value: <span id='row-col-value'></span></p>
+    </div>
+
+    <h2>JSON Data</h2>
+    <div id="json-data" class="text-info json_data">
+
+    </div>
+</div>
+</body>
+<script src="script.js"></script>
+</html>
