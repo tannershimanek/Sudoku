@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,300&family=Roboto:wght@100;300;400;500;700&display=swap');
 
+:root {
+    --attention-text-color: #f75948;
+    --danger-text-color: #dc143c;
+    --warning-text-color: #daa520;
+    --success-text-color: #008080;
+    --info-text-color: #2a99fa;
+    --info-bg-color: #f0f8ff;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 2em;
@@ -20,13 +29,11 @@ img {
 td { 
     border: 1px solid black; 
     text-align: center; 
-    /* color: blue;  */
-    color: #2a99fa;
+    color: var(--info-text-color);
     min-width: 30px;
 }
 
 p { 
-    /* color: blueviolet;  */
     margin: 1em;
     padding: .2em;
 }
@@ -67,7 +74,7 @@ pre {
 }
 
 a {
-    color: #f75948;
+    color: var(--attention-text-color);
 }
 
 button {
@@ -82,47 +89,32 @@ button {
     margin-top: 1em;
     margin-bottom: 1em;
 }
-/* #easy {
-    border: 2px solid lightseagreen;
-} */
 
 .selected {
     border: 2px solid lightseagreen;
 }
 
 #start_game {
-    /* margin: 1em; */
     display: none;
 }
 
 #new_game { 
-    /* margin: 1em; */
     display: none;
 }
 
 #cell_data {
-    background-color: aliceblue;
+    background-color: var(--info-bg-color);
     border-radius: 3px;
     margin: auto;
     padding: 1em;
 }
 
 #json-data {
-    background-color: aliceblue;
+    background-color: var(--info-bg-color);
     border-radius: 3px;
     margin: auto;
     padding: 1em;
 }
-
-/* #animate {
-    transition: height 1s ease-out;
-    height: 0;
-    overflow: hidden;
-} */
-
-/* .slide-down {
-    height: 100%;
-} */
 
 .border-right { 
     border-right: 3px solid black; 
@@ -166,11 +158,11 @@ button {
 }
 
 .text-danger {
-    color: firebrick;
+    color: var(--danger-text-color);
 }
 
 .text-info {
-    color: #2a99fa;
+    color: var(--info-text-color);
 }
 
 .font-large {
@@ -185,39 +177,34 @@ button {
 }
 
 .highlight {
-    color: crimson;
+    color: var(--danger-text-color);
 }
 
 .success {
-    color: teal;
+    color: var(--success-text-color);
 }
 
 .warning {
-    color:goldenrod;
+    color: var(--warning-text-color);
 }
 
 .danger {
-    color: crimson;
+    color: var(--danger-text-color);
 }
-
-
 
 .error-msg {
     background: #fceae9;
     color: #f75948;
-    /* background-color: aliceblue;
-    color: #2a99fa; */
     border: none;
     border-radius: 4px;
     padding: 14px 20px;
 }
 
 
-
-
 /*  ------------------
     Fade In Animations
 */
+
 
 .fade-in {
     animation: fadeIn .2s;
