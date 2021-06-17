@@ -7,15 +7,17 @@
 
 
 // ---------------------------- MODEL ---------------------------- //
+// data and functions that work with the data
+
 
 let gameState = {
-    'DIFFICULTIES' : { 'easy': 19, 'medium': 28, 'hard': 37 }, // num of blank spaces 19
+    'DIFFICULTIES' : { 'easy': 0, 'medium': 28, 'hard': 37 }, // num of blank spaces 19
     'difficulty': 0, // default to 0
     'gameOver' : true, // true when game is over
     'grid': [], // puzzle
     'solution' : [], // solution to puzzle
     
-}
+};
 
 
 function buildShuffledArray() {

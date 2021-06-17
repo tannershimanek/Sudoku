@@ -1,20 +1,3 @@
-
-// data and functions that work with the data
-// alert(yolo.y);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // --------------------------- CONTROLLER ---------------------------- //
 
 let startTime;
@@ -186,7 +169,7 @@ function checkIfPlayerWon(row, col, value) {
     // console.log('grid', getGrid());
     if (getGrid().toString() === getSolution().toString()) {
         stopTimer();
-        new Audio('victoryff.swf.mp3').play();
+        new Audio('assets/victoryff.swf.mp3').play();
         alert('yay you won');
 
     } else {
