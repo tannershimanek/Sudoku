@@ -57,7 +57,7 @@ loginForm.addEventListener('submit', (event) => {
                 localStorage.setItem('username', credentials.userName);
                 localStorage.setItem('timestamp', credentials.timestamp);
                 // redirect to game page
-                window.location.href="grid.html";
+                window.location.href="../html/grid.html";
             }
             responseJSON.result === 'valid' ? redirectPage(responseJSON) : displayError();
         }

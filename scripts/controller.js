@@ -169,7 +169,8 @@ function checkIfPlayerWon(row, col, value) {
     // console.log('grid', getGrid());
     if (getGrid().toString() === getSolution().toString()) {
         stopTimer();
-        new Audio('assets/victoryff.swf.mp3').play();
+        document.getElementById('stopwatch').style.color = 'crimson';
+        new Audio('../assets/victoryff.swf.mp3').play();
         alert('yay you won');
 
     } else {
