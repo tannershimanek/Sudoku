@@ -163,21 +163,39 @@ function resetTimer() {
 }
 
 
+function showToast() {
+    // show s popup when the player wins the game
+    let tst= document.getElementById('toast');
+    let playAgain = document.getElementById('play-again');
+    let finalTimeLocation = document.getElementById('final-time');
+    let prevTimeLocation = document.getElementById('prev-time');
+
+    playAgain.addEventListener('click', () => {
+        tst.className = tst.className.replace("show", "");
+        newGame();
+    });
+
+    localStorage.setItem('currentTime', formatTime(elapsedTime));
+    finalTimeLocation.innerHTML = '';
+    finalTimeLocation.innerHTML = localStorage.currentTime;
+
+    prevTimeLocation.innerHTML = '';
+    prevTimeLocation.innerHTML = localStorage.prevTime;
+    tst.className = 'show';
+}
+
+
 function checkIfPlayerWon(row, col, value) {
     getGrid()[row][col] = value;
     
-    // console.log('grid', getGrid());
     if (getGrid().toString() === getSolution().toString()) {
         stopTimer();
         document.getElementById('stopwatch').style.color = 'crimson';
+        showToast();
         new Audio('../assets/victoryff.swf.mp3').play();
-        alert('yay you won');
-
-    } else {
-        console.log('nay');
-        console.log('g', getGrid())
-        console.log('s', getSolution())
+        setPrevGameComplete(true);
     }
+    
     console.log(row, col, value, getSolution()[row][col]);
 }
 
@@ -220,10 +238,8 @@ function startGame() {
                 document.getElementById('col-coordinate').innerHTML = col + 1;
                 document.getElementById('row-col-value').innerHTML = this.innerHTML;
             }
-            // checkIfPlayerWon(row, col);
         });
     }
-    
 }
 
 
@@ -241,6 +257,7 @@ function newGame() {
     document.getElementById('col-coordinate').innerHTML = '';
     document.getElementById('row-col-value').innerHTML = '';
     stopTimer();
+    if (getPrevGameComplete) { localStorage.setItem('prevTime', formatTime(elapsedTime)) };
     // displayGameState('game reset...');
 }
 
@@ -299,9 +316,6 @@ function getGameJSON() {
 // getGameJSON();
 
 
-
-
-// window.addEventListener('load', animate('800px'));
 // ------------------ CONTROLLER - END ------------------ //
 
 

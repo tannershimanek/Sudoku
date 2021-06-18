@@ -16,7 +16,7 @@ let gameState = {
     'gameOver' : true, // true when game is over
     'grid': [], // puzzle
     'solution' : [], // solution to puzzle
-    
+    'prevGameComplete': false // true if the players prev game was completed
 };
 
 
@@ -145,5 +145,16 @@ function setGrid(val) {
 function getGrid() {
     return gameState.grid;
 }
+
+
+function setPrevGameComplete(val) {
+    gameState.prevGameComplete = val;
+}
+
+
+function getPrevGameComplete() {
+    return gameState.prevGameComplete;
+}
+
 
 // ---------------------------- MODEL - END ----------------------------- //

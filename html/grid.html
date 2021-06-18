@@ -10,7 +10,7 @@
 <body>
     <div class="center">
         <h1>Game Grid</h1>
-        <p>Sample game state (json) and game grid (html table).</p>
+        <!-- <p>Sample game state (json) and game grid (html table).</p> -->
     </div>
 
 
@@ -35,9 +35,18 @@
 
     <button id="start_game">Start Game</button>
 
-    <!-- Delete later, kept for submission 2 -->
-   
-
+    <div id="toast">
+        <div class="success">
+            <h2>Congratulations!</h2>
+            <hr>
+        </div>
+        <div>
+            <p>You completed the puzzle in <span id='final-time'></span></p>
+            <p>Your previous time was <span id="prev-time">0</span></p>
+            <p>Do you want to play again?</p>
+            <button id="play-again">Yes</button>
+        </div>
+    </div>
     <div id="game_grid">
         
     </div>
@@ -47,34 +56,6 @@
     </div>
     
     <h2>Cell Data</h2>
-    <!-- <h2>Sample Game State</h2> -->
-    <!-- 
-        regions: each list is a different region starting from top left to bottom right.
-                1. NO repeated numbers in any sublist/region.
-                2. Check each column and each row for repeats.
-        difficulty: 
-                1. [easy, medium, hard] -- set to true for selected difficulty.
-                2. When new difficulty is selected generate new table. 
-        gameOver: 
-                1. if each column, row, and region have no repeats, set gameOver to True, else False.
-                2. When gameOver = false, change start_game button to new_game button.
-        other:
-            1. click on a given number and emphasize all of the same numbers on the board.
-    -->
-    <!-- <pre id="state">gameState: {
-        "regions": [[0,0,6,2,0,4,0,1,9],
-                    [0,0,0,7,5,0,6,0,0],
-                    [0,4,9,0,0,0,3,0,5],
-                    [0,0,0,0,0,2,0,0,7],
-                    [9,7,0,5,0,6,0,8,2],
-                    [4,0,0,8,0,0,0,0,0],
-                    [5,0,3,0,0,0,4,7,0],
-                    [0,0,7,0,1,5,0,0,0],
-                    [1,6,0,7,0,2,9,0,0]],
-        "difficulty": [true, false, false],
-        "gameOver": false
-    }</pre> -->
-
     <div id="cell_data" class='text-info'>
         <p>Row: <span id='row-coordinate'></span></p>
         <p>Column: <span id='col-coordinate'></span></p>
@@ -86,7 +67,9 @@
 
     </div>
 </div>
-</body>
+
+
 <script type="text/javascript" src="../scripts/model.js"></script>
 <script type="text/javascript" src="../scripts/controller.js"></script>
+</body>
 </html>

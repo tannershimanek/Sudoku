@@ -5,6 +5,7 @@
     --danger-text-color: #dc143c;
     --warning-text-color: #daa520;
     --success-text-color: #008080;
+    --success-bg-color: #c7f5f5;
     --info-text-color: #2a99fa;
     --info-bg-color: #f0f8ff;
 }
@@ -116,6 +117,11 @@ button {
     padding: 1em;
 }
 
+#game_grid {
+    margin: auto;
+    width: 90%;
+}
+
 .border-right { 
     border-right: 3px solid black; 
 }
@@ -133,7 +139,10 @@ button {
 }
 
 .card { 
+    
+    /* position: fixed; */
     margin: auto;
+    /* left: 50%; */
     padding: 1em; 
     border: 1px solid black; 
     border-radius: 3px; 
@@ -163,6 +172,10 @@ button {
 
 .text-info {
     color: var(--info-text-color);
+}
+
+.text-attention {
+    color: var(--attention-text-color);
 }
 
 .font-large {
@@ -259,3 +272,67 @@ button {
 
 
  */
+
+
+
+/* TOAST */
+
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#toast {
+    margin: auto;
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: 40px; /*Divide value of min-width by 2 */
+    background-color: whitesmoke; /* Black background color */
+    color: var(--success-text-color); /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 4px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    top: 40%; /* 30px from the bottom */
+    -webkit-box-shadow: 2px 4px 15px 2px rgba(0,0,0,0.81); 
+    box-shadow: 2px 4px 15px 2px rgba(0,0,0,0.81);
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #toast.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s;
+    animation: fadein 0.5s;
+  }
+
+
+  /* #toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  } */
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 40%; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 40%; opacity: 1;}
+  }
+  
+  /* @-webkit-keyframes fadeout {
+    from {bottom: 50%; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 50%; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  } */
+.toast-head {
+    color: var(--success-text-color)
+    /* background-color: var(--success-bg-color); */
+}
