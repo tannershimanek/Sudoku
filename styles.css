@@ -15,6 +15,8 @@ body {
     margin: 2em;
     margin-left: 4em;
     margin-right: 4em;
+    letter-spacing: 0.01em;
+    line-height: 1.6em;
 }
 
 h1, h2, h3, h4 {
@@ -32,6 +34,7 @@ td {
     text-align: center; 
     color: var(--info-text-color);
     min-width: 30px;
+    width: 9.9%;
 }
 
 p { 
@@ -91,6 +94,13 @@ button {
     margin-bottom: 1em;
 }
 
+li {
+    margin-top: 0.5em;
+}
+footer {
+    height: 50vh;
+}
+
 .selected {
     border: 2px solid lightseagreen;
 }
@@ -118,8 +128,37 @@ button {
 }
 
 #game_grid {
+    display: block;
     margin: auto;
-    width: 90%;
+    width: 100%;
+}
+
+.mc-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.img-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+div.img-row .mr-image {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px;
+}
+div.img-row .row-el {
+    display: block;
+    margin: 0%;
+    border-radius: 3px;
+    padding: 5px;
 }
 
 .border-right { 
@@ -283,7 +322,7 @@ button {
     margin: auto;
     visibility: hidden; /* Hidden by default. Visible on click */
     min-width: 250px; /* Set a default minimum width */
-    margin-left: 40px; /*Divide value of min-width by 2 */
+    /* margin-left: 40px; */
     background-color: whitesmoke; /* Black background color */
     color: var(--success-text-color); /* White text color */
     text-align: center; /* Centered text */
