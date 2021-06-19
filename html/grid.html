@@ -12,7 +12,7 @@
         <h1>Game Grid</h1>
         <!-- <p>Sample game state (json) and game grid (html table).</p> -->
     </div>
-
+    
 
 <div id="animate" class="card">
     <h1>Sudoku <span class="small-and-muted"> - Tanner Shimanek</span></h1>
@@ -20,7 +20,7 @@
         <!-- <br>
         You logged in at <span id="timeStamp" class="text-info"></span> -->
     </p>
-    <p class="text-danger"><a href="/html/checkpoint.html" target="_blank" rel="noopener noreferrer">Click here for Project Checkpoint...</a></p>
+    <p class="text-danger"><a href="./documentation.html" target="_blank" rel="noopener noreferrer">Click here for Project Documentation...</a></p>
     <!-- <button id="logout">Clear Local Storage</button> -->
     <h3>Game Grid</h3>
 
@@ -32,6 +32,7 @@
     </select></p>
     
     <p>Time: <time id="stopwatch">00:00:00</time></p>
+    <p>Previous Time: <time id="prev-time-2">00:00:00</time></p>
 
     <button id="start_game">Start Game</button>
 
@@ -41,8 +42,9 @@
             <hr>
         </div>
         <div>
+            <audio src="../assets/victoryff.swf.mp3"></audio>
             <p>You completed the puzzle in <span id='final-time'></span></p>
-            <p>Your previous time was <span id="prev-time">0</span></p>
+            <p>Your previous time was <span id="prev-time-1">0</span></p>
             <p>Do you want to play again?</p>
             <button id="play-again">Yes</button>
         </div>
@@ -60,6 +62,11 @@
         <p>Row: <span id='row-coordinate'></span></p>
         <p>Column: <span id='col-coordinate'></span></p>
         <p>Value: <span id='row-col-value'></span></p>
+    </div>
+
+    <h2>Current Puzzle Solution</h2>
+    <div id="solution-data" class="text-data">
+
     </div>
 
     <h2>JSON Data</h2>
