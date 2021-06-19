@@ -163,24 +163,37 @@ function resetTimer() {
 }
 
 
+function updatePrevTime() {
+    let finalTimeLocation = document.getElementById('final-time');
+    let prevTimeLocationToast = document.getElementById('prev-time-1');
+    let prevTimeLocation = document.getElementById('prev-time-2');
+    
+    // set time in local storage
+    localStorage.setItem('currentTime', formatTime(elapsedTime));
+    finalTimeLocation.innerHTML = '';
+    finalTimeLocation.innerHTML = localStorage.currentTime;
+
+    prevTimeLocationToast.innerHTML = '';
+    prevTimeLocationToast.innerHTML = localStorage.prevTime;
+
+    prevTimeLocation.innerHTML = '';
+    prevTimeLocation.innerHTML = localStorage.prevTime;
+    prevTimeLocation.style.color = '#daa520';
+}
+
+
 function showToast() {
-    // show s popup when the player wins the game
+    // show a popup when the player wins the game
     let tst= document.getElementById('toast');
     let playAgain = document.getElementById('play-again');
-    let finalTimeLocation = document.getElementById('final-time');
-    let prevTimeLocation = document.getElementById('prev-time');
 
     playAgain.addEventListener('click', () => {
         tst.className = tst.className.replace("show", "");
         newGame();
     });
 
-    localStorage.setItem('currentTime', formatTime(elapsedTime));
-    finalTimeLocation.innerHTML = '';
-    finalTimeLocation.innerHTML = localStorage.currentTime;
-
-    prevTimeLocation.innerHTML = '';
-    prevTimeLocation.innerHTML = localStorage.prevTime;
+    // set time in local storage
+    updatePrevTime();
     tst.className = 'show';
 }
 
@@ -192,16 +205,27 @@ function checkIfPlayerWon(row, col, value) {
         stopTimer();
         document.getElementById('stopwatch').style.color = 'crimson';
         showToast();
-        new Audio('../assets/victoryff.swf.mp3').play();
+        let aud = document.getElementsByTagName('audio');
+        aud[0].onchange = new Audio('../assets/victoryff.swf.mp3').play();
+        
         setPrevGameComplete(true);
     }
-    
+
     console.log(row, col, value, getSolution()[row][col]);
+}
+
+
+function displaySolution() {
+    // displays solution to the dom for grading
+    let solutionLocation = document.getElementById('solution-data');
+    solutionLocation.innerHTML = '';
+    solutionLocation.innerHTML = `[${gameState.solution[0]}]<br>[${gameState.solution[1]}]<br>[${gameState.solution[2]}]<br>[${gameState.solution[3]}]<br>[${gameState.solution[4]}]<br>[${gameState.solution[5]}]<br>[${gameState.solution[6]}]<br>[${gameState.solution[7]}]<br>[${gameState.solution[8]}]`;
 }
 
 
 function startGame() {
     // start the game and set gameState to false
+    getGameJSON();
     setGameOver(false);
     setPuzzleData();
     buildGameGrid(9,9);
@@ -240,6 +264,8 @@ function startGame() {
             }
         });
     }
+    // shows solution for grading
+    displaySolution();
 }
 
 
@@ -278,7 +304,8 @@ function displayGameState(val) {
 
 function getGameJSON() {
     let request = new XMLHttpRequest();
-    request.open("GET", "game.json", false);
+    request.open("GET", "../game.json", false);
+    console.log('../game.json');
     request.send(null);
 
     if (request.status != 200) {
@@ -293,27 +320,23 @@ function getGameJSON() {
     let jsondata = document.getElementById('json-data');
     jsondata.innerHTML = '';
 
-    let userName = document.createElement('p');
     let difficulty = document.createElement('p');
     let grid = document.createElement('p');
     let solution = document.createElement('p');
-    let time = document.createElement('p');
 
-    jsondata.appendChild(userName).innerHTML = `userName: ${jsondoc.userName}`;
     jsondata.appendChild(difficulty).innerHTML = `difficulty: ${jsondoc.difficulty}`;
     jsondata.appendChild(grid).innerHTML = `grid: <br><br>[${jsondoc.grid[0]}]<br>[${jsondoc.grid[1]}]<br>[${jsondoc.grid[2]}]<br>[${jsondoc.grid[3]}]<br>[${jsondoc.grid[4]}]<br>[${jsondoc.grid[5]}]<br>[${jsondoc.grid[6]}]<br>[${jsondoc.grid[7]}]<br>[${jsondoc.grid[8]}]`;
     jsondata.appendChild(solution).innerHTML = `solution: <br><br>[${jsondoc.solution[0]}]<br>[${jsondoc.solution[1]}]<br>[${jsondoc.solution[2]}]<br>[${jsondoc.solution[3]}]<br>[${jsondoc.solution[4]}]<br>[${jsondoc.solution[5]}]<br>[${jsondoc.solution[6]}]<br>[${jsondoc.solution[7]}]<br>[${jsondoc.solution[8]}]`;
-    jsondata.appendChild(time).innerHTML = `time: ${jsondoc.time}`;
 
-    setSolution(jsondoc.solution);
-    setGrid(jsondoc.grid);
-    setDifficulty(jsondoc.difficulty);
-    buildGameGrid(9,9);
-    startTimer()
-    displayTime(jsondoc.time);
+    // setSolution(jsondoc.solution);
+    // setGrid(jsondoc.grid);
+    // setDifficulty(jsondoc.difficulty);
+    // buildGameGrid(9,9);
+    // startTimer();
+    // displayTime(jsondoc.time);
 }
 
-// getGameJSON();
+
 
 
 // ------------------ CONTROLLER - END ------------------ //
