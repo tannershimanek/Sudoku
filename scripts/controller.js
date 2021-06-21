@@ -21,13 +21,13 @@ for (let i = 0; i < difficulties.length; i++) {
     });
 }
 
-logout.addEventListener('click', () => {
-    localStorage.clear();
-    user.innerHTML = localStorage.username;
-    timestamp.innerHTML = localStorage.timestamp;
+// logout.addEventListener('click', () => {
+//     localStorage.clear();
+//     user.innerHTML = localStorage.username;
+//     timestamp.innerHTML = localStorage.timestamp;
 
-    // window.location.href="login.html";
-});
+//     // window.location.href="login.html";
+// });
 
 // window.addEventListener('load', () => {
 //     let isValid = localStorage.isvalid;
@@ -257,15 +257,12 @@ function startGame() {
                 document.getElementById('col-coordinate').innerHTML = col + 1;
                 document.getElementById('row-col-value').innerHTML = inputValue || 'None';
             } else {
-                // this.innerHTML != 0 ? this.innerHTML = 0 : this.innerHTML = getSolution()[row][col];
                 document.getElementById('row-coordinate').innerHTML = row + 1;
                 document.getElementById('col-coordinate').innerHTML = col + 1;
                 document.getElementById('row-col-value').innerHTML = this.innerHTML;
             }
         });
     }
-    // shows solution for grading
-    displaySolution();
 }
 
 
@@ -284,51 +281,36 @@ function newGame() {
     document.getElementById('row-col-value').innerHTML = '';
     stopTimer();
     if (getPrevGameComplete) { localStorage.setItem('prevTime', formatTime(elapsedTime)) };
-    // displayGameState('game reset...');
 }
 
 
-function displayGameState(val) {
-    console.log(val);
-    console.log('--- LIVE GAME STATE BELOW ---');
-    console.log('getDifficulties', getDifficulties());
-    console.log('getDifficulty', getDifficulty());
-    console.log('getGameOver', getGameOver());
-    console.log('getSolution', getSolution());
-    console.log('getGrid', getGrid());
-    console.log('--- --- --- --- --- --- ---');
+// function getGameJSON() {
+//     let request = new XMLHttpRequest();
+//     request.open("GET", "../game.json", false);
+//     console.log('../game.json');
+//     request.send(null);
 
-    document.getElementById('state').innerHTML = 'Live gameState is found in the console..<br>click the new game button to end the <br>game and change the state.';
-}
+//     if (request.status != 200) {
+//         alert("Request failed " + request.status + ": " + request.statusText);
+//         return;
+//     }
 
+//     let jsondoc = JSON.parse(request.responseText);
+//     console.log(jsondoc);
+//     displayTime(jsondoc.time);
 
-function getGameJSON() {
-    let request = new XMLHttpRequest();
-    request.open("GET", "../game.json", false);
-    console.log('../game.json');
-    request.send(null);
+//     let jsondata = document.getElementById('json-data');
+//     jsondata.innerHTML = '';
 
-    if (request.status != 200) {
-        alert("Request failed " + request.status + ": " + request.statusText);
-        return;
-    }
+//     let difficulty = document.createElement('p');
+//     let grid = document.createElement('p');
+//     let solution = document.createElement('p');
 
-    let jsondoc = JSON.parse(request.responseText);
-    console.log(jsondoc);
-    displayTime(jsondoc.time);
+//     jsondata.appendChild(difficulty).innerHTML = `difficulty: ${jsondoc.difficulty}`;
+//     jsondata.appendChild(grid).innerHTML = `grid: <br><br>[${jsondoc.grid[0]}]<br>[${jsondoc.grid[1]}]<br>[${jsondoc.grid[2]}]<br>[${jsondoc.grid[3]}]<br>[${jsondoc.grid[4]}]<br>[${jsondoc.grid[5]}]<br>[${jsondoc.grid[6]}]<br>[${jsondoc.grid[7]}]<br>[${jsondoc.grid[8]}]`;
+//     jsondata.appendChild(solution).innerHTML = `solution: <br><br>[${jsondoc.solution[0]}]<br>[${jsondoc.solution[1]}]<br>[${jsondoc.solution[2]}]<br>[${jsondoc.solution[3]}]<br>[${jsondoc.solution[4]}]<br>[${jsondoc.solution[5]}]<br>[${jsondoc.solution[6]}]<br>[${jsondoc.solution[7]}]<br>[${jsondoc.solution[8]}]`;
 
-    let jsondata = document.getElementById('json-data');
-    jsondata.innerHTML = '';
-
-    let difficulty = document.createElement('p');
-    let grid = document.createElement('p');
-    let solution = document.createElement('p');
-
-    jsondata.appendChild(difficulty).innerHTML = `difficulty: ${jsondoc.difficulty}`;
-    jsondata.appendChild(grid).innerHTML = `grid: <br><br>[${jsondoc.grid[0]}]<br>[${jsondoc.grid[1]}]<br>[${jsondoc.grid[2]}]<br>[${jsondoc.grid[3]}]<br>[${jsondoc.grid[4]}]<br>[${jsondoc.grid[5]}]<br>[${jsondoc.grid[6]}]<br>[${jsondoc.grid[7]}]<br>[${jsondoc.grid[8]}]`;
-    jsondata.appendChild(solution).innerHTML = `solution: <br><br>[${jsondoc.solution[0]}]<br>[${jsondoc.solution[1]}]<br>[${jsondoc.solution[2]}]<br>[${jsondoc.solution[3]}]<br>[${jsondoc.solution[4]}]<br>[${jsondoc.solution[5]}]<br>[${jsondoc.solution[6]}]<br>[${jsondoc.solution[7]}]<br>[${jsondoc.solution[8]}]`;
-
-}
+// }
 
 
 
