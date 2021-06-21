@@ -225,7 +225,6 @@ function displaySolution() {
 
 function startGame() {
     // start the game and set gameState to false
-    getGameJSON();
     setGameOver(false);
     setPuzzleData();
     buildGameGrid(9,9);
