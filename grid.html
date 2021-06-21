@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Sudoku Game</title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <!-- <br>
         You logged in at <span id="timeStamp" class="text-info"></span> -->
     </p>
-    <p class="text-danger"><a href="./documentation.html" target="_blank" rel="noopener noreferrer">Click here for Project Documentation...</a></p>
+    <p class="text-danger"><a href="./html/documentation.html" target="_blank" rel="noopener noreferrer">Click here for Project Documentation...</a></p>
     <!-- <button id="logout">Clear Local Storage</button> -->
     <h3>Game Grid</h3>
 
@@ -41,7 +41,7 @@
             <hr>
         </div>
         <div>
-            <audio src="../assets/victoryff.swf.mp3"></audio>
+            <audio src="./assets/victoryff.swf.mp3"></audio>
             <p>You completed the puzzle in <span id='final-time'></span></p>
             <p>Your previous time was <span id="prev-time-1">0</span></p>
             <p>Do you want to play again?</p>
@@ -62,20 +62,10 @@
         <p>Column: <span id='col-coordinate'></span></p>
         <p>Value: <span id='row-col-value'></span></p>
     </div>
-
-    <h2>Current Puzzle Solution</h2>
-    <div id="solution-data" class="text-data">
-
-    </div>
-
-    <h2>JSON Data</h2>
-    <div id="json-data" class="text-info json_data">
-
-    </div>
 </div>
 
 
-<script type="text/javascript" src="../scripts/model.js"></script>
-<script type="text/javascript" src="../scripts/controller.js"></script>
+<script type="text/javascript" src="./scripts/model.js"></script>
+<script type="text/javascript" src="./scripts/controller.js"></script>
 </body>
 </html>
