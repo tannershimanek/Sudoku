@@ -11,7 +11,7 @@
 
 
 let gameState = {
-    'DIFFICULTIES' : { 'easy': 0, 'medium': 28, 'hard': 37 }, // num of blank spaces
+    'DIFFICULTIES' : { 'easy': 19, 'medium': 28, 'hard': 37 }, // num of blank spaces
     'difficulty': 0, // default to 0
     'gameOver' : true, // true when game is over
     'grid': [], // puzzle

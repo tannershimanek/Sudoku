@@ -328,44 +328,9 @@ function getGameJSON() {
     jsondata.appendChild(grid).innerHTML = `grid: <br><br>[${jsondoc.grid[0]}]<br>[${jsondoc.grid[1]}]<br>[${jsondoc.grid[2]}]<br>[${jsondoc.grid[3]}]<br>[${jsondoc.grid[4]}]<br>[${jsondoc.grid[5]}]<br>[${jsondoc.grid[6]}]<br>[${jsondoc.grid[7]}]<br>[${jsondoc.grid[8]}]`;
     jsondata.appendChild(solution).innerHTML = `solution: <br><br>[${jsondoc.solution[0]}]<br>[${jsondoc.solution[1]}]<br>[${jsondoc.solution[2]}]<br>[${jsondoc.solution[3]}]<br>[${jsondoc.solution[4]}]<br>[${jsondoc.solution[5]}]<br>[${jsondoc.solution[6]}]<br>[${jsondoc.solution[7]}]<br>[${jsondoc.solution[8]}]`;
 
-    // setSolution(jsondoc.solution);
-    // setGrid(jsondoc.grid);
-    // setDifficulty(jsondoc.difficulty);
-    // buildGameGrid(9,9);
-    // startTimer();
-    // displayTime(jsondoc.time);
 }
 
 
 
 
 // ------------------ CONTROLLER - END ------------------ //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// [
-//     [0,0,6,2,0,4,0,1,9],
-//     [0,0,0,7,5,0,6,0,0],
-//     [0,4,9,0,0,0,3,0,5],
-//     [0,0,0,0,0,2,0,0,7],
-//     [9,7,0,5,0,6,0,8,2],
-//     [4,0,0,8,0,0,0,0,0],
-//     [5,0,3,0,0,0,4,7,0],
-//     [0,0,7,0,1,5,0,0,0],
-//     [1,6,0,7,0,2,9,0,0]]

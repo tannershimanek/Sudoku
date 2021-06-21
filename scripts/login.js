@@ -66,7 +66,6 @@ loginForm.addEventListener('submit', (event) => {
 });
 
 
-
 // NAME	    PASSWORD
 // Harpo	swordfish
 // Groucho	horsefeathers
