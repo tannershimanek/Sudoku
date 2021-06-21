@@ -284,6 +284,7 @@ function newGame() {
 }
 
 
+
 // function getGameJSON() {
 //     let request = new XMLHttpRequest();
 //     request.open("GET", "../game.json", false);
