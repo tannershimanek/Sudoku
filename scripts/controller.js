@@ -279,7 +279,11 @@ function newGame() {
     document.getElementById('col-coordinate').innerHTML = '';
     document.getElementById('row-col-value').innerHTML = '';
     stopTimer();
-    if (getPrevGameComplete) { localStorage.setItem('prevTime', formatTime(elapsedTime)) };
+    if (getPrevGameComplete) 
+        { localStorage.setItem('prevTime', formatTime(elapsedTime));
+    } else {
+        localStorage.setItem('prevTime', '00:00:00');
+    }
 }
 
 
