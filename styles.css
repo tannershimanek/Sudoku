@@ -12,6 +12,8 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    display:block;
+    position: relative;
     margin: 2em;
     margin-left: 4em;
     margin-right: 4em;
@@ -19,7 +21,7 @@ body {
     line-height: 1.6em;
 }
 
-@media only screen and (min-width: 500px) {
+@media only screen and (max-width: 500px) {
     body {
       margin-left: 0%;
       margin-right: 0%;
@@ -45,7 +47,8 @@ td {
 }
 
 table {
-    width: 100%;
+    width: 90%;
+    margin: auto;
 }
 
 p { 
@@ -139,6 +142,13 @@ footer {
     padding: 1em;
 }
 
+@media only screen and (max-width: 500px) {
+    #cell_data {
+      padding: none;
+      width: 90%;
+    }
+  }
+
 #json-data {
     background-color: var(--info-bg-color);
     border-radius: 3px;
@@ -209,8 +219,9 @@ div.img-row .row-el {
 
 @media only screen and (max-width: 500px) {
     .card {
-      margin: auto;
-      width: 100%;
+      margin: none;
+      padding: none;
+      border: none;
     }
   }
 
@@ -221,7 +232,8 @@ div.img-row .row-el {
 
 @media only screen and (max-width: 500px) {
     .center {
-      margin: auto;
+      margin: none;
+      padding: none;
       width: 100%;
     }
   }
