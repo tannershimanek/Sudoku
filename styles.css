@@ -44,6 +44,10 @@ td {
     width: 9.9%;
 }
 
+table {
+    width: 100%;
+}
+
 p { 
     margin: 1em;
     padding: .2em;
@@ -206,7 +210,7 @@ div.img-row .row-el {
 @media only screen and (max-width: 500px) {
     .card {
       margin: auto;
-      width: 80%;
+      width: 100%;
     }
   }
 
@@ -218,7 +222,7 @@ div.img-row .row-el {
 @media only screen and (max-width: 500px) {
     .center {
       margin: auto;
-      width: 80%;
+      width: 100%;
     }
   }
 
