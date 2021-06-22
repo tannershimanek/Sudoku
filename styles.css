@@ -203,10 +203,24 @@ div.img-row .row-el {
     width: 23.5em;
 }
 
+@media only screen and (max-width: 500px) {
+    .card {
+      margin: auto;
+      width: 80%;
+    }
+  }
+
 .center {
     margin: auto;
     width: 23.5em;
 }
+
+@media only screen and (max-width: 500px) {
+    .center {
+      margin: auto;
+      width: 80%;
+    }
+  }
 
 .invalid {
     background-color: pink;
