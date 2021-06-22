@@ -49,17 +49,17 @@ p {
     padding: .2em;
 }
 
-input[type=other], input[type=number] {
+input[type=other], input[inputmode=numeric] {
     width: 2em;
     text-align: center;
-    -moz-appearance:textfield;
+    /* -moz-appearance:textfield; */
 }
 
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
+} */
 
 
 input[type=text], input[type=password] {

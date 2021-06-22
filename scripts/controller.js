@@ -105,7 +105,7 @@ function updateCells(row, col) {
         return given
     } else {
         let elementInput = document.createElement('input');
-        elementInput.setAttribute('type', 'number');
+        elementInput.setAttribute('inputmode', 'numeric');
         elementInput.setAttribute('maxlength', '1');
         return elementInput;
     }
@@ -251,7 +251,7 @@ function startGame() {
             cellClass.contains('highlight') ? cellClass.remove('highlight') : cellClass.add('highlight');
 
             // update the cell data div
-            if (this.innerHTML === '<input type="number" maxlength="1">') {
+            if (this.innerHTML === '<input inputmode="numeric" maxlength="1">') {
                 document.getElementById('row-coordinate').innerHTML = row + 1;
                 document.getElementById('col-coordinate').innerHTML = col + 1;
                 document.getElementById('row-col-value').innerHTML = inputValue || 'None';
